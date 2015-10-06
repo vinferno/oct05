@@ -194,13 +194,9 @@ function random_color(){ // generates a slot from array
 }
 function array_from_url(){
     var xhr = new XMLHttpRequest();
-    alert(input_url.value);
     xhr.open("GET", input_url.value,false);
     xhr.send(null);
-    alert(xhr.responseText);
     var ray = xhr.responseText.split(",");
-    alert(typeof(ray));
-    alert(ray[1]);
     input_read.value = ray;
 }
 
