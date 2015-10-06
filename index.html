@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Full program</title>
+    <script src="js/script.js" ></script>
+    <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+
+<button>Create</button>
+<button>Read</button>
+<button>Update</button>
+<button>Delete</button>
+
+<hr/>
+<input type="text"/>
+<input type="text"/>
+<input type="text"/>
+<input type="text"/>
+<input type="file" accept="*" onchange="loadFile(event)">
+
+<div id="instructions">
+    INSTRUCTIONS: <br><br>
+    create: takes a color and creates a list item.<br><br>
+    read: takes an array and creates multiple items.<br><br>
+    update: takes the active li (green border) and updates color.<br><br>
+    delete: will delete the active li or a specified color or number.<br><br>
+    Choose File: will take any chosen text file(txt,csv,json,ect.) with a comma seperated array and load it into the "Read" input.<br><br>
+    additional features:<br><br>
+    up/down arrow to change acive li.<br><br>
+    click on - button will delete li.<br><br>
+    click on 'rename' will focus on update.
+
+
+
+</div>
+
+
+</body>
+</html>
