@@ -20,18 +20,26 @@
 <input type="text"/>
 <input type="text"/>
 <input type="file" accept="*" onchange="loadFile(event)">
+<input type="text"/>
 
 <div id="instructions">
-    INSTRUCTIONS: <br><br>
-    create: takes a color and creates a list item.<br><br>
-    read: takes an array and creates multiple items.<br><br>
-    update: takes the active li (green border) and updates color.<br><br>
-    delete: will delete the active li or a specified color or number.<br><br>
-    Choose File: will take any chosen text file(txt,csv,json,ect.) with a comma seperated array and load it into the "Read" input.<br><br>
-    additional features:<br><br>
-    up/down arrow to change acive li.<br><br>
-    click on - button will delete li.<br><br>
-    click on 'rename' will focus on update.
+   <strong><h2>INSTRUCTIONS:</h2> </strong><br>
+    <strong>CREATE:</strong> takes a color and creates a list item.<br>
+    <strong>READ:</strong> takes an array and creates multiple items.<br>
+    <strong>UPDATE:</strong> takes the active li (green border) and updates color.
+    <strong>OR:</strong> can take a comma seperated array with two values of colors and change all li's with first value to second value
+    <strong>OR:</strong> can take a comma seperated array with two values of a number and a color and change the numbered li to second color
+    <br/>
+    <strong>DELETE:</strong> will delete the active li <strong>OR:</strong> a specified color <strong>OR:</strong> number.<br>
+    <strong>CHOOSE FILE:</strong> will take any chosen text file(txt,csv,json,ect.) with a comma seperated array and load it into the "Read" input.<br>
+
+    <strong>UP/DOWN arrow</strong> to change acive li.<br>
+    <strong>DELETE button:</strong> will delete active li <br/>
+    <strong>List Itemes on hover:</strong>
+    CLICK on <strong>'-'</strong> button will delete li
+    CLICK on <strong>'Rename</strong> will focus on update.<br>
+    <strong>URL input:</strong> Enter a url of an array and it will load in the Read input box<br/>
+    example url: https://raw.githubusercontent.com/vinferno/oct05/gh-pages/url.txt
 
 
 

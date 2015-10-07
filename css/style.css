@@ -57,11 +57,16 @@ div:nth-of-type(2){
 }
 
 #instructions{
-    width:500px;
+    width:800px;
     display: inline-block;
     float:right;
     padding:30px;
     margin:20px;
     background-color: aqua;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 
