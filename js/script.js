@@ -9,6 +9,7 @@ var lower_case_list = list_of_colors.map(function(value) {// new list with lower
 });
 
 window.addEventListener('keyup',function(){
+
     if (active_li != null) {
         if (event.keyCode === 40) {
             active_li = active_li.nextElementSibling;
@@ -21,6 +22,15 @@ window.addEventListener('keyup',function(){
             if (active_li === null){
                 active_li = ol.children[ol.children.length-1];
             }
+        }
+        if (event.keyCode ===46){
+
+            var next = active_li.previousElementSibling;
+            if (next === null) {
+                next = active_li.nextElementSibling
+            }
+            active_li.remove();
+            active_li = next;
         }
         loop_active();
     }
@@ -56,7 +66,7 @@ document.addEventListener('DOMContentLoaded',function(){
             loop_active();
         }
         new_item.children[0].addEventListener('click',function(){this.parentNode.remove()});
-        new_item.children[2].addEventListener('click',function(){input_update.value=this.parentNode.children[1].innerHTML;input_update.focus()});
+        new_item.children[2].addEventListener('click',function(){input_update.value=this.parentNode.children[1].innerHTML;input_update.focus();input_update.select();});
         input_create.value = '';
         new_item.children[1].style.backgroundColor = new_item.children[1].textContent;
         new_item.addEventListener('dblclick', function () {
@@ -75,17 +85,34 @@ document.addEventListener('DOMContentLoaded',function(){
                 new_item.innerHTML = '<div> - </div> <div> </div><div>Rename</div>';
                 new_item.children[1].innerHTML = list_of_colors[lower_case_list.indexOf(string[item].toLowerCase())];
                 new_item.children[0].addEventListener('click',function(){this.parentNode.remove()});
-                new_item.children[2].addEventListener('click',function(){input_update.value=this.parentNode.children[1].innerHTML;input_update.focus()});
+                new_item.children[2].addEventListener('click',function(){input_update.value=this.parentNode.children[1].innerHTML;input_update.focus();input_update.select();});
                 loop_active();
             }
         }
     });
     button_update.addEventListener('click',function(){
-        if (lower_case_list.indexOf(input_update.value.toLowerCase()) > -1) {
+        list_elements = document.getElementsByTagName('li');
+        loop_active();
+        var check_for_array = input_update.value.split(',');
+        var nan=isNaN(check_for_array[0]);
+        var nan2 = isNaN(check_for_array[1]);
+        if (nan === false && nan2 === true){
+            list_elements[check_for_array[0]-1].children[1].innerHTML = list_of_colors[lower_case_list.indexOf(check_for_array[1].toLowerCase())];
+        }
+        if (nan === true && nan2 === true && check_for_array.length === 2){
+            for (var i=0;i<list_elements.length;i++){
+                if (list_elements[i].children[1].innerHTML=== list_of_colors[lower_case_list.indexOf(check_for_array[0].toLowerCase())]){
+                    list_elements[i].children[1].innerHTML = list_of_colors[lower_case_list.indexOf(check_for_array[1].toLowerCase())];
+                }
+            }
+        }
+        if (lower_case_list.indexOf(input_update.value.toLowerCase()) > -1){
+            loop_active();
             active_li.children[1].innerHTML = list_of_colors[lower_case_list.indexOf(input_update.value.toLowerCase())];
             loop_active();
             input_update.value='';
         }
+
     });
     button_delete.addEventListener('click',function(){
         if (input_delete.value === ''){
