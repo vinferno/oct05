@@ -1,1 +1,1 @@
-stuck
+nun
